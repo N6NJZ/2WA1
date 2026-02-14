@@ -9,16 +9,18 @@ const FRONTEND_URL = 'https://twowa1-front-end.onrender.com';
 
 const app = express();
 const port = process.env.PORT || 3001;
+
+app.use((req, res, next) => {
+  console.log(`[Request Reveived] ${req.method} ${req.url}`);
+})
 app.use(cors({
   origin: FRONTEND_URL,
   methods: ['POST','GET'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true
 }))
 
-// === MIDDLEWARE ===
-// Enable CORS (Cross-Origin Resource Sharing)
-// This allows your static site (on a different domain) to talk to this API
-app.use( cors() );
+
 // Parse JSON request bodies
 app.use( express.json() );
 app.use( express.urlencoded( { extended: true } ) );
@@ -61,6 +63,11 @@ app.post( '/send-ppr-form', ( req, res ) => {
   }
 
   const data = req.body;
+
+  if (!data || Object.keys(data).length === 0) {
+    console.error('Received empty body');
+    return res.status(400).json({message: "No data received"});
+  }
 
   // Create a simple HTML body for the email
   let htmlBody = '<h1>New PPR Form Submission</h1>';
