@@ -1,20 +1,14 @@
 // Load environment variables from .env file
-require('dotenv').config();
-
-const express = require('express');
-const nodemailer = require('nodemailer');
-const cors = require('cors');
-
-const FRONTEND_URL = 'https://twowa1-front-end.onrender.com';
-
+import dotenv from 'dotenv';
+import { Resend } from 'resend';
+import express from 'express';
+import cors from 'cors';
 const app = express();
 const port = process.env.PORT || 10000;
 
-
-
 // Allow EVERYONE. If this fixes it, we know your FRONTEND_URL variable was slightly wrong (e.g. missing 'www' or 'https').
 app.use(cors({
-  origin: '*', 
+  origin: '*',
   methods: ['POST', 'GET', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true
@@ -33,18 +27,16 @@ app.use(express.json({ limit: '10mb' }), (err, req, res, next) => {
 
 app.use(express.urlencoded({ extended: true }));
 
-
-
 // === EMAIL CONFIGURATION ===
-// Get email credentials from Environment Variables
 const EMAIL_USER = process.env.EMAIL_USER;
 const EMAIL_PASS = process.env.EMAIL_PASS;
 const DESTINATION_EMAIL = process.env.DESTINATION_EMAIL;
+const RESEND_API_KEY = process.env.RESEND_API_KEY;
 
 // Check if critical environment variables are set
-if (!EMAIL_USER || !EMAIL_PASS || !DESTINATION_EMAIL) {
+if (!EMAIL_USER || !EMAIL_PASS || !DESTINATION_EMAIL || !RESEND_API_KEY) {
   console.error('FATAL ERROR: Email environment variables are not set.');
-  console.error('Please set EMAIL_USER, EMAIL_PASS, and DESTINATION_EMAIL.');
+  console.error('Please set EMAIL_USER, EMAIL_PASS, RESEND_API_KEY, and DESTINATION_EMAIL.');
   // Don't start the server if config is missing
   // process.exit(1); 
   // Note: Render might restart this. Logging is key.
@@ -55,43 +47,12 @@ if (!EMAIL_USER || !EMAIL_PASS || !DESTINATION_EMAIL) {
 // See: https://support.google.com/accounts/answer/185833
 console.log('creating transporter');
 
-const transporter = nodemailer.createTransport({
-  host: 'smtp.gmail.com',  // We are being explicit
-  port: 587,               // We are forcing the SSL port
-  secure: false,            // This requires the connection to be secure instantly
-  auth: {
-    user: EMAIL_USER,
-    pass: EMAIL_PASS,
-  },
-  family: 4,
-  tls: {
-    rejectUnauthorized: false
-  },
-  logger: true, // Log every step of the connection
-  debug: true   // Include SMTP traffic in logs
-});
 
-// === ADD THIS VERIFICATION BLOCK ===
-// This will test the connection immediately when the server starts.
-// If this fails, the app logs will tell you EXACTLY why (e.g., "Bad Auth" or "Connection Timeout")
-transporter.verify(function (error, success) {
-  if (error) {
-    console.error('[CRITICAL] Email Server Connection Failed:', error);
-  } else {
-    console.log('[SUCCESS] Email Server is ready to take messages');
-  }
-});
 
 // === API ENDPOINT ===
 // This is the endpoint your HTML form will send data to
 app.post('/send-ppr-form', (req, res) => {
   console.log('Received PPR form submission');
-
-  // Check for missing config on-request
-  if (!EMAIL_USER || !EMAIL_PASS || !DESTINATION_EMAIL) {
-    console.error('Email configuration is missing.');
-    return res.status(500).json({ message: 'Server configuration error.' });
-  }
 
   const data = req.body;
 
@@ -117,14 +78,15 @@ app.post('/send-ppr-form', (req, res) => {
   };
 
   // Send the email
-  transporter.sendMail(mailOptions, (error, info) => {
-    if (error) {
-      console.error('Error sending email:', error);
-      return res.status(500).json({ message: 'Error sending email.' });
-    }
-    console.log('Email sent:', info.response);
-    res.status(200).json({ message: 'Email sent successfully.' });
+  const resend = new Resend(process.env.RESEND_API_KEY);
+
+  resend.emails.send({
+    from: process.env.EMAIL_USER || 'dave@rv-7.com',
+    to: 'dave@rv-7.com',
+    subject: 'Hello World',
+    html: '<p>Congrats on sending your <strong>first email</strong>!</p>'
   });
+
 });
 
 // Health check endpoint (optional, but good for Render)
@@ -132,6 +94,6 @@ app.get('/health', (req, res) => {
   res.status(200).send('OK');
 });
 
-  app.listen(port, '0.0.0.0', () => {
-    console.log(`Backend server listening on port ${port}`);
-  });
+app.listen(port, '0.0.0.0', () => {
+  console.log(`Backend server listening on port ${port}`);
+});

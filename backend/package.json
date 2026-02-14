@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "name": "dpa-backend",
   "version": "1.0.0",
   "description": "Backend server for DPA website PPR form",
