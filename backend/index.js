@@ -5,8 +5,15 @@ const express = require( 'express' );
 const nodemailer = require( 'nodemailer' );
 const cors = require( 'cors' );
 
+const FRONTEND_URL = 'https://twowa1-front-end.onrender.com';
+
 const app = express();
 const port = process.env.PORT || 3001;
+app.use(cors({
+  origin: FRONTEND_URL,
+  methods: ['POST','GET'],
+  credentials: true
+}))
 
 // === MIDDLEWARE ===
 // Enable CORS (Cross-Origin Resource Sharing)

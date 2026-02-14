@@ -789,7 +789,7 @@
     <!-- 3. Page Navigation Script -->
     <script>
         document.addEventListener( 'DOMContentLoaded', function () {
-
+            const BACKEND_URL = 'https://twowa1-back-end.onrender.com';
             const allNavLinks = document.querySelectorAll( '.data-page-link' );
             const allPageSections = document.querySelectorAll( '[data-page-content]' );
             const activeClass = 'active'; // Bootstrap's active class
@@ -862,7 +862,7 @@
                     // 3. Replace the URL below with your public URL.
                     const apiEndpoint = 'https://twowa1.onrender.com/send-ppr-form';
 
-                    if ( apiEndpoint === 'YOUR_RENDER_WEB_SERVICE_URL_HERE/send-ppr-form' ) {
+                    if ( apiEndpoint === `${BACKEND_URL}/send-ppr-form` ) {
                         errorMessage.innerHTML = '<strong>Configuration Error:</strong> The form API endpoint has not been set by the administrator.';
                         errorMessage.classList.remove( 'd-none' );
                         return;
