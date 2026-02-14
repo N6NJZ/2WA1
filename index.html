@@ -789,8 +789,7 @@
     <!-- 3. Page Navigation Script -->
     <script>
         document.addEventListener( 'DOMContentLoaded', function () {
-            const BACKEND_URL = 'https://twowa1-back-end.onrender.com';
-            const allNavLinks = document.querySelectorAll( '.data-page-link' );
+            const BACKEND_URL = 'https://twowa1.onrender.com'; // Removed "-back-end" to match your apiEndpoint            const allNavLinks = document.querySelectorAll( '.data-page-link' );
             const allPageSections = document.querySelectorAll( '[data-page-content]' );
             const activeClass = 'active'; // Bootstrap's active class
             const hiddenClass = 'd-none'; // Bootstrap's display none class
@@ -860,13 +859,7 @@
                     // 1. Create your Web Service on Render.
                     // 2. Get its public URL (e.g., https://dpa-backend.onrender.com)
                     // 3. Replace the URL below with your public URL.
-                    const apiEndpoint = 'https://twowa1.onrender.com/send-ppr-form';
-
-                    if ( apiEndpoint === `${BACKEND_URL}/send-ppr-form` ) {
-                        errorMessage.innerHTML = '<strong>Configuration Error:</strong> The form API endpoint has not been set by the administrator.';
-                        errorMessage.classList.remove( 'd-none' );
-                        return;
-                    }
+                    const apiEndpoint = `${BACKEND_URL}/send-ppr-form`;
 
                     // Disable button, show loading
                     submitButton.disabled = true;

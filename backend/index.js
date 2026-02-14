@@ -10,7 +10,6 @@ const FRONTEND_URL = 'https://twowa1-front-end.onrender.com';
 const app = express();
 const port = process.env.PORT || 10000;
 
-
 app.use((req, res, next) => {
   console.log(`[Request Reveived] ${req.method} ${req.url}`);
   next();
