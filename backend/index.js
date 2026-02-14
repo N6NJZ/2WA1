@@ -11,20 +11,40 @@ const app = express();
 const port = process.env.PORT || 10000;
 
 app.use((req, res, next) => {
-  console.log(`[Request Reveived] ${req.method} ${req.url}`);
+  console.log('------------------------------------------------');
+  console.log(`[STEP 1] Raw Request Received: ${req.method} ${req.url}`);
+  console.log(`[STEP 1] Headers:`, JSON.stringify(req.headers['content-type']));
   next();
-})
+});
+
+// Allow EVERYONE. If this fixes it, we know your FRONTEND_URL variable was slightly wrong (e.g. missing 'www' or 'https').
 app.use(cors({
-  origin: FRONTEND_URL,
-  methods: ['POST', 'GET'],
+  origin: '*', 
+  methods: ['POST', 'GET', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true
-}))
+}));
+app.use((req, res, next) => {
+  console.log('[STEP 2] Passed CORS');
+  next();
+});
 
+// 3. BODY PARSER WITH ERROR HANDLING
+// If the JSON is bad, this is usually where it crashes silently.
+app.use(express.json({ limit: '10mb' }), (err, req, res, next) => {
+  if (err) {
+    console.error('[CRITICAL FAIL] JSON Parsing Error:', err.message);
+    return res.status(400).send('Invalid JSON format');
+  }
+  next();
+});
 
-// Parse JSON request bodies
-app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+app.use((req, res, next) => {
+  console.log('[STEP 3] Body Parsed. Payload keys:', Object.keys(req.body));
+  next();
+});
 
 // === EMAIL CONFIGURATION ===
 // Get email credentials from Environment Variables
