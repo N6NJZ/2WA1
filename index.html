@@ -620,12 +620,12 @@
                         <div class="col-md-6">
                             <label class="form-label">Ratings</label>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="Ratings" id="ppr-rating-vfr"
+                                <input class="form-check-input" type="checkbox" name="Ratings[]" id="ppr-rating-vfr"
                                        value="VFR">
                                 <label class="form-check-label" for="ppr-rating-vfr">VFR</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="Ratings" id="ppr-rating-ifr"
+                                <input class="form-check-input" type="checkbox" name="Ratings[]" id="ppr-rating-ifr"
                                        value="IFR">
                                 <label class="form-check-label" for="ppr-rating-ifr">IFR</label>
                             </div>
@@ -789,7 +789,8 @@
     <!-- 3. Page Navigation Script -->
     <script>
         document.addEventListener( 'DOMContentLoaded', function () {
-            const BACKEND_URL = 'https://twowa1.onrender.com'; // Removed "-back-end" to match your apiEndpoint            const allNavLinks = document.querySelectorAll( '.data-page-link' );
+            const BACKEND_URL = 'https://twowa1.onrender.com'; 
+            const allNavLinks = document.querySelectorAll( '.data-page-link' );
             const allPageSections = document.querySelectorAll( '[data-page-content]' );
             const activeClass = 'active'; // Bootstrap's active class
             const hiddenClass = 'd-none'; // Bootstrap's display none class
@@ -847,7 +848,7 @@
 
                 pprForm.addEventListener( 'submit', function ( e ) {
                     e.preventDefault(); // Stop default browser submission
-
+                    console.log("Form submission intercepted via JS.");
                     // Client-side validation
                     if ( !pprForm.checkValidity() ) {
                         e.stopPropagation();
@@ -883,6 +884,7 @@
                         }
                     } );
 
+                    console.log("Payload prepared:", data);
                     // Send data to your backend
                     fetch( apiEndpoint, {
                         method: 'POST',
