@@ -8,7 +8,11 @@ const cors = require( 'cors' );
 const FRONTEND_URL = 'https://twowa1-front-end.onrender.com';
 
 const app = express();
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 10000;
+
+app.listen(port, '0.0.0.0', () => {
+  console.log(`Backend server listening on port ${port}`);
+});
 
 app.use((req, res, next) => {
   console.log(`[Request Reveived] ${req.method} ${req.url}`);
