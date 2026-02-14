@@ -104,8 +104,6 @@ app.get('/health', (req, res) => {
   res.status(200).send('OK');
 });
 
-if (require.main === module) {
   app.listen(port, '0.0.0.0', () => {
     console.log(`Backend server listening on port ${port}`);
   });
-}
