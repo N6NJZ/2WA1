@@ -10,11 +10,6 @@ const FRONTEND_URL = 'https://twowa1-front-end.onrender.com';
 const app = express();
 const port = process.env.PORT || 10000;
 
-if (require.main === module) {
-  app.listen(port, '0.0.0.0', () => {
-    console.log(`Backend server listening on port ${port}`);
-  });
-}
 
 app.use((req, res, next) => {
   console.log(`[Request Reveived] ${req.method} ${req.url}`);
@@ -107,7 +102,8 @@ app.get('/health', (req, res) => {
   res.status(200).send('OK');
 });
 
-// Start the server
-app.listen(port, () => {
-  console.log(`Backend server listening on port ${port}`);
-});
+if (require.main === module) {
+  app.listen(port, '0.0.0.0', () => {
+    console.log(`Backend server listening on port ${port}`);
+  });
+}
