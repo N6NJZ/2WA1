@@ -67,14 +67,18 @@ if (!EMAIL_USER || !EMAIL_PASS || !DESTINATION_EMAIL) {
 console.log('creating transporter');
 
 const transporter = nodemailer.createTransport({
-  host: 'smtp.gmail.com',
-  port: 465,
-  secure: true, // use SSL
+  host: 'smtp.gmail.com', // Explicit host
+  port: 465,              // Explicit secure port
+  secure: true,           // Use SSL
   auth: {
     user: EMAIL_USER,
     pass: EMAIL_PASS,
   },
+  // detailed logging to debug the connection
+  logger: true,
+  debug: true 
 });
+
 // === API ENDPOINT ===
 // This is the endpoint your HTML form will send data to
 app.post('/send-ppr-form', (req, res) => {
