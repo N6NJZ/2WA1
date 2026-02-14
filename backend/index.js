@@ -44,6 +44,8 @@ if (!EMAIL_USER || !EMAIL_PASS || !DESTINATION_EMAIL) {
 // Create a reusable transporter object using Nodemailer
 // This example uses Gmail. You MUST use an "App Password" for this.
 // See: https://support.google.com/accounts/answer/185833
+console.log('creating transporter');
+
 const transporter = nodemailer.createTransport({
   service: 'gmail', // Or your email provider (e.g., 'hotmail', 'yahoo')
   auth: {
