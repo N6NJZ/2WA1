@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diamond Point Airport - 2WA1</title>
+
+    <!-- === FAVICON LINK UPDATED (CACHE BUST) === -->
+    <link rel="icon" href="assets/favicon.svg?v=2" type="image/svg+xml">
+
+    <!-- 1. Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          xintegrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <style>
+        /* Simple style for the active navigation link (Bootstrap's 'active' class) */
+        .nav-link.active {
+            font-weight: 600;
+            color: #0d6efd;
+            /* Bootstrap primary color */
+        }
+
+        body {
+            background-color: #f8f9fa;
+            /* Bootstrap light gray bg */
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-gray-800 bg-gray-50">
+
+    <!-- === HEADER & NAVIGATION === -->
+    <header class="shadow-sm sticky-top bg-white">
+        <nav class="navbar navbar-expand-md bg-white">
+            <div class="container">
+                <!-- Site Title -->
+                <a class="navbar-brand text-primary fw-bold fs-4 data-page-link" href="#" data-page="home">
+                    Diamond Point Airport - 2WA1
+                </a>
+
+                <!-- Mobile Menu Button -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav"
+                        aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Navigation Menu -->
+                <div class="collapse navbar-collapse" id="main-nav">
+                    <ul class="navbar-nav ms-auto mb-2 mb-md-0">
+                        <li class="nav-item">
+                            <a class="nav-link data-page-link" href="#" data-page="home">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link data-page-link" href="#" data-page="about">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link data-page-link" href="#" data-page="directors">Directors</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link data-page-link" href="#" data-page="rules">Rules</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link data-page-link" href="#" data-page="fees">Fees</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link data-page-link" href="#" data-page="weather">Weather</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link data-page-link" href="#" data-page="procedures">Procedures</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link data-page-link" href="#" data-page="calendar">Calendar</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- === MAIN CONTENT AREA === -->
+    <!-- All page content goes here. The script at the bottom manages showing/hiding these sections. -->
+    <main class="container my-4 my-md-5">
+
+        <!-- --- HOME PAGE --- -->
+        <!-- 'data-page-content' attribute MUST match the 'data-page' attribute from the nav link -->
+        <section data-page-content="home">
+
+            <!-- 1. HERO IMAGE SECTION -->
+            <!-- We use the main banner image from the original site as a background -->
+            <style>
+                .hero-section {
+                    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('assets/dpa-from-air.jpg');
+                    background-position: center;
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    min-height: 40vh;
+                    /* 40% of the viewport height */
+                }
+            </style>
+            <div class="hero-section text-white p-4 p-md-5 rounded shadow-lg d-flex align-items-center">
+                <div class="col-md-8">
+                    <h1 class="display-4 fw-bold mb-4">Welcome to Diamond Point Airport</h1>
+                    <p class="lead mb-0">
+                        The only official website of the Diamond Point Airport.
+                    </p>
+                </div>
+            </div>
+
+            <!-- 2. USEFUL RESOURCES SECTION -->
+            <div class="mt-5">
+                <!-- <h2 class="h1 fw-semibold text-dark mb-4">Useful Resources</h2> -->
+
+                <!-- Responsive grid for resource cards -->
+                <div class="row g-4">
+
+                    <!-- About Card -->
+                    <div class="col-md-6">
+                        <div class="card shadow-sm h-100 overflow-hidden">
+                            <img src="assets/airstrip-info.jpg" class="card-img-top" alt="Diamond Point Airport Info"
+                                 onerror="this.src='https://placehold.co/600x400/0d6efd/white?text=Airport+Info'"
+                                 style="height: 250px; object-fit: cover;">
+                            <div class="card-body p-4">
+                                <h3 class="card-title h2 fw-semibold text-primary mb-2">About</h3>
+                                <p class="card-text text-dark">Learn about our Airport.</p>
+                            </div>
+                            <!-- "data-page" attr links this to the JS navigation -->
+                            <a href="#" class="stretched-link data-page-link" data-page="about"
+                               aria-label="View About"></a>
+                        </div>
+                    </div>
+
+                    <!-- Weather Card -->
+                    <div class="col-md-6">
+                        <div class="card shadow-sm h-100 overflow-hidden">
+                            <img src="assets/live-weather.jpg" class="card-img-top" alt="Weather Station"
+                                 onerror="this.src='https://placehold.co/600x400/198754/white?text=Live+Weather'"
+                                 style="height: 250px; object-fit: cover;">
+                            <div class="card-body p-4">
+                                <h3 class="card-title h2 fw-semibold text-success mb-2">Weather</h3>
+                                <p class="card-text text-dark">Stay in the know with live weather.</p>
+                            </div>
+                            <a href="#" class="stretched-link data-page-link" data-page="weather"
+                               aria-label="View Weather"></a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- --- ABOUT PAGE (NEW) --- -->
+        <section data-page-content="about" class="d-none">
+            <div class="bg-white p-4 p-md-5 rounded shadow-lg">
+                <h1 class="display-4 fw-bold text-dark mb-4">About Diamond Point Airport</h1>
+
+                <div class="row g-4">
+                    <!-- Column for Airport Info -->
+                    <div class="col-md-7">
+                        <h2 class="h3 fw-semibold text-dark mb-3">Airport Information</h2>
+                        <p class="fs-5 text-secondary">
+                            Diamond Point Airport is a private airport located in Sequim, Washington. Please review all
+                            procedures prior to arrival.
+                        </p>
+                        <ul class="list-group list-group-flush fs-5 mb-4">
+                            <li
+                                class="list-group-item d-flex justify-content-between align-items-center text-secondary">
+                                <strong>Identifier:</strong>
+                                <span>2WA1</span>
+                            </li>
+                            <li
+                                class="list-group-item d-flex justify-content-between align-items-center text-secondary">
+                                <strong>Elevation:</strong>
+                                <span>262 ft</span>
+                            </li>
+                            <li
+                                class="list-group-item d-flex justify-content-between align-items-center text-secondary">
+                                <strong>Runway:</strong>
+                                <span>11/29</span>
+                            </li>
+                            <li
+                                class="list-group-item d-flex justify-content-between align-items-center text-secondary">
+                                <strong>Dimensions:</strong>
+                                <span>2335' x 24' Asphalt</span>
+                            </li>
+                            <li
+                                class="list-group-item d-flex justify-content-between align-items-center text-secondary">
+                                <strong>CTAF:</strong>
+                                <span>122.9</span>
+                            </li>
+                            <li
+                                class="list-group-item d-flex justify-content-between align-items-center text-secondary">
+                                <strong>Traffic Pattern:</strong>
+                                <span>Left 11 / Right 29 (North side, over water)</span>
+                            </li>
+                        </ul>
+                        <p class="fs-5 text-secondary">
+                            All patterns are flown over the water to the north of the field. The airport is situated on
+                            a bluff, and drop-offs at either end can generate turbulence. See the <a href="#"
+                               class="fw-bold data-page-link" data-page="procedures">Procedures</a> page for critical
+                            arrival and departure information.
+                        </p>
+                    </div>
+
+                    <!-- Column for Images -->
+                    <div class="col-md-5">
+                        <div class="mb-4">
+                            <a href="https://skyvector.com/airport/2WA1/Diamond-Point-Airstrip-Airport" target="_blank">
+                                <img src="assets/airstrip-info.jpg" target="_blank"
+                                     class="img-thumbnail img-fluid rounded shadow-sm"
+                                     alt="Airstrip information diagram">
+                            </a>
+                        </div>
+                        <div>
+                            <a href="https://skyvector.com/?ll=48.07045149251432,-122.98080253250902&chart=301&zoom=1"
+                               target="_blank">
+                                <img src="assets/skyvector1.jpg" class="img-thumbnail img-fluid rounded shadow-sm"
+                                     alt="SkyVector sectional chart">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- --- DIRECTORS PAGE (NEW) --- -->
+        <section data-page-content="directors" class="d-none">
+            <div class="bg-white p-4 p-md-5 rounded shadow-lg">
+                <h1 class="display-4 fw-bold text-dark mb-4">Board of Directors</h1>
+                <div class="fs-5 text-secondary">
+                    <ul class="list-group list-group-flush mb-4 fs-5">
+                        <li class="list-group-item d-flex justify-content-between align-items-center text-secondary">
+                            <strong>David Richardson</strong>
+                            <span>President</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center text-secondary">
+                            <strong>John Johnson</strong>
+                            <span>Vice President</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center text-secondary">
+                            <strong>Collette Miller</strong>
+                            <span>Secretary</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center text-secondary">
+                            <strong>Joan Catalano</strong>
+                            <span>Treasurer</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center text-secondary">
+                            <strong>Brooks Petersen</strong>
+                            <span>Member at large</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center text-secondary">
+                            <strong>Gerry Mahoney</strong>
+                            <span>Member at large</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center text-secondary">
+                            <strong>Jamie Sego</strong>
+                            <span>Member at large</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- --- RULES PAGE (NEW) --- -->
+        <section data-page-content="rules" class="d-none">
+            <div class="bg-white p-4 p-md-5 rounded shadow-lg">
+                <h1 class="display-4 fw-bold text-dark mb-4">Rules & Regulations</h1>
+                <div class="fs-5 text-secondary">
+                    <p class="small fst-italic mb-4">
+                        (As Amended and Adopted at the DPAA Board Meeting of 05/03/2007)
+                    </p>
+                    <p>In accordance with Chapter III, Section 3, of the Diamond Point Airport Association Constitution=
+                        & Bylaws, the following operational rules are established for pilots of aircraft using the
+                        Diamond Point Airport.</p>
+
+                    <h2 class="h3 fw-semibold text-dark mt-5 mb-3">Ground Rules</h2>
+                    <ul class="list-group list-group-flush mb-4 fs-5">
+                        <li class="list-group-item text-secondary">Parking of aircraft will be confined to established
+                            parking/tiedown areas. Owners of real property adjacent to the airport or taxiways may park
+                            on their property as might their guests.</li>
+                        <li class="list-group-item text-secondary">Taxiing of aircraft prior to or after flight will be
+                            done on the established taxiways.</li>
+                        <li class="list-group-item text-secondary">Aircraft shall come to a complete stop before
+                            entering or crossing a street, proceeding only after insuring that there is no conflicting
+                            traffic.</li>
+                        <li class="list-group-item text-secondary">Vehicle traffic, other than for construction or
+                            airport maintenance, will be limited to aircraft, normal passenger cars and maximum 3/4 ton
+                            pickups.</li>
+                        <li class="list-group-item text-secondary">Airport access on the south side is limited to the
+                            south taxiway and tie-down area. Access on the north side is limited to the north taxiway
+                            via the North taxiway gate* and the Northeast gate* at the northeast airport property line
+                            adjacent to Lot 31, Plat III of Sunshine Acres.</li>
+                        <li class="list-group-item text-secondary">Sunshine Acres residents may cross the runway on foot
+                            or bicycle, however, they do so at their own risk. DPAA accepts no responsibility for the
+                            safety of persons crossing the runway. Handicapped persons may cross on motorized scooters.
+                            Small powered vehicles such as golf carts and motor bikes may traverse around the ends of
+                            the runway using the grass surface.</li>
+                        <li class="list-group-item text-secondary">Property owners contemplating construction projects
+                            adjacent to airport property must sign an affidavit, prior to breaking ground, indicating
+                            full knowledge of all airport rules and regulations. These property owners shall plan
+                            construction activities by first providing heavy equipment and construction vehicle access
+                            from the street side of their property.</li>
+                        <li class="list-group-item text-secondary">If a construction vehicle, due to its size or load,
+                            cannot move to the construction site via the established street-side access, the property
+                            owner or contractor may submit a written request for special permission from the DPAA Board
+                            to make entry via a taxiway.</li>
+                        <li class="list-group-item text-secondary">*These access gates on the north side consist of
+                            three 30 inch posts, center post removable, with a key lock cable attached. The outer posts
+                            are located twenty feet either side of centerline so as not to conflict with transiting
+                            aircraft.</li>
+                        <li class="list-group-item text-secondary">Keys for the North Taxiway Gate will be issued, upon
+                            request, to DPAA property owners requiring vehicle and aircraft access to and from their
+                            property or hangars via the North Taxiway and airport property. Northeast Gate access is
+                            limited to construction vehicles and will be controlled by the DPAA Board.</li>
+                        <li class="list-group-item text-secondary">The DPAA Board will reply in writing to approve or
+                            deny such a request on a case-by-case basis. The Northeast gate is to be used for this type
+                            of entry on the north side of the airport. Prior to access, the property owner or contractor
+                            will walk the airport property with DPAA Board members to ascertain the existing condition
+                            of the surface. No construction access will be allowed during winter months or after heavy
+                            rains.</li>
+                        <li class="list-group-item text-secondary">DPAA Board members will walk the property again with
+                            the property owner or contractor if damage is noted. It will be the property owner's
+                            responsibility to repair the surface to the original condition within 30 days. If the damage
+                            is not repaired, DPAA may have a contractor repair the surface and the property owner will
+                            be responsible for the cost.</li>
+                        <li class="list-group-item text-secondary">In any event, <strong>NO VEHICLE, OTHER THAN
+                                AIRCRAFT, SHALL BE PERMITTED TO MOVE ACROSS ANY PORTION OF THE RUNWAY!</strong></li>
+                    </ul>
+
+                    <h2 class="h3 fw-semibold text-dark mt-5 mb-3">Flight Rules</h2>
+                    <ul class="list-group list-group-flush mb-4 fs-5">
+                        <li class="list-group-item text-secondary">Aircraft departing the runway will announce their
+                            departure on 122.9 before taking the runway.</li>
+                        <li class="list-group-item text-secondary">A right hand traffic pattern flown 1000 ft. AGL
+                            (1260′ MSL) will be used for runway 29.</li>
+                        <li class="list-group-item text-secondary">A standard left hand traffic pattern flown 1000 ft.
+                            AGL (1260′ MSL) will be used for runway11.</li>
+                        <li class="list-group-item text-secondary">Arriving aircraft should announce their position and
+                            intentions on 122.9 MHz while on a 45 degree leg to downwind when using either runway.</li>
+                        <li class="list-group-item text-secondary"><strong>Caution!</strong> In windy conditions severe
+                            downdrafts occur on the approach ends of both runways29 and 11. High, steep approaches are
+                            recommended</li>
+                        <li class="list-group-item text-secondary">Only Regular and Associate DPAA members may grant a
+                            pilot permission to operate an aircraft to and from the airport and all aircraft operators
+                            using the Diamond Point Airport do so at their own risk.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- --- FEES PAGE (FORMERLY RULES & FEES) --- -->
+        <section data-page-content="fees" class="d-none">
+            <!-- CONTENT UPDATED -->
+            <div class="bg-white p-4 p-md-5 rounded shadow-lg">
+                <h1 class="display-4 fw-bold text-dark mb-4">Dues & Fees</h1>
+                <div class="fs-5 text-secondary">
+
+                    <p class="small fst-italic mb-4">
+                        Dues and Fees as voted in the 3rd Quarter Meeting of DPAA Members 2021.
+                    </p>
+
+                    <h2 class="h3 fw-semibold text-dark mb-3">1. Airport Fees</h2>
+                    <p>All Airport Fees, with the exception of transient fees, are payable in advance on an annual basis
+                        for the amounts listed below:</p>
+                    <ul class="list-group list-group-flush mb-4 fs-5">
+                        <li class="list-group-item d-flex justify-content-between align-items-center text-secondary">
+                            <strong>User/Maintenance Fees (Regular/Associate):</strong>
+                            <span>$550/paid annually</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center text-secondary">
+                            <strong>User/Maintenance Fees (Transient):</strong>
+                            <span>$5/night</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center text-secondary">
+                            <strong>Tiedown Fees (Annual):</strong>
+                            <span>$120/yr paid annually</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center text-secondary">
+                            <strong>Tiedown Fees (Quarterly):</strong>
+                            <span>$35/qtr paid quarterly*</span>
+                        </li>
+                        <li class="list-group-item text-secondary fst-italic small">
+                            *Paid on arrival
+                        </li>
+                    </ul>
+
+
+                    <h2 class="h3 fw-semibold text-dark mt-5 mb-3">2. Membership Dues</h2>
+                    <p>Payable by January 1 of each year:</p>
+                    <ul class="list-group list-group-flush mb-4 fs-5">
+                        <li class="list-group-item d-flex justify-content-between align-items-center text-secondary">
+                            <strong>Regular or Associate Member (R/A):</strong>
+                            <span>$50/yr</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center text-secondary">
+                            <strong>Auxiliary Member (Ax):</strong>
+                            <span>$25/yr</span>
+                        </li>
+                    </ul>
+
+                    <h2 class="h3 fw-semibold text-dark mt-5 mb-3">3. Commercial Operations</h2>
+                    <p>A person(s) operating a business in Sunshine Acres involving the use of the airport requires
+                        Board approval. Fees for a commercial operation shall be set to reflect the volume of business
+                        transacted and/or the amount of airport usage identified with the business, as determined by the
+                        board.</p>
+
+                    <h2 class="h3 fw-semibold text-dark mt-5 mb-3">4. Collection</h2>
+                    <p>Unpaid dues shall result in loss of membership privileges and loss of use of Airport facilities
+                        as stated in the Bylaws, Article III, Section 3.</p>
+
+                    <h2 class="h3 fw-semibold text-dark mt-5 mb-3">5. Initiation Fees</h2>
+                    <p>The Initiation fee for new members is $500.00 for Regular Membership.</p>
+
+                    <hr class="my-5">
+
+                    <h2 class="h3 fw-semibold text-dark mb-3">References</h2>
+                    <p>In accordance with DPAA Bylaws, Articles II & III. Additionally, any person(s) who give guests
+                        permission to operate aircraft to and from the Airport must pay fees in accordance with this
+                        schedule. For the purpose of paying dues they should be mailed to PO Box 1241, Sequim WA 98382.
+                        Regular and Associate Members are entitled to seven (7) days per year tie down at no cost.</p>
+
+                </div>
+            </div>
+            <!-- END EDITING 'FEES' -->
+        </section>
+
+        <!-- --- WEATHER PAGE --- -->
+        <section data-page-content="weather" class="d-none">
+            <!-- CONTENT UPDATED -->
+            <div class="bg-white p-4 p-md-5 rounded shadow-lg">
+                <h1 class="display-4 fw-bold text-dark mb-4">Live Weather at Diamond Point</h1>
+                <p class="fs-5 text-secondary mb-4">
+                    This is the live weather feed from the Tempest Weather Station (ID: 89998) located at Diamond Point
+                    Airport.
+                </p>
+
+                <!-- 
+                  This iframe embeds the public, responsive grid-view of the weather station.
+                  The "vh-100" class makes it tall, and "w-100" makes it full-width.
+                -->
+                <div class="ratio ratio-16x9" style="min-height: 80vh;">
+                    <iframe style="border: 1px solid #ccc; border-radius: 8px;"
+                            src="https://tempestwx.com/station/89998/grid" title="Live Diamond Point Weather Station"
+                            allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+            <!-- END EDITING 'WEATHER' -->
+        </section>
+
+        <!-- --- PROCEDURES PAGE --- -->
+        <section data-page-content="procedures" class="d-none">
+            <!-- CONTENT UPDATED -->
+            <div class="bg-white p-4 p-md-5 rounded shadow-lg">
+                <h1 class="display-4 fw-bold text-dark mb-4">Diamond Point Airport Procedures</h1>
+                <div class="fs-5 text-secondary">
+
+                    <h2 class="h3 fw-semibold text-dark mb-3">Procedures Briefing</h2>
+
+                    <p>Welcome to Diamond Point! The Associate or Regular Member of the Diamond Point Airport
+                        Association in good standing that has sponsored your visit wishes you to become familiar with
+                        our airport and the particular challenges it can present. Please review the following
+                        considerations before your flight and landing.</p>
+
+                    <!-- === LINK UPDATED HERE === -->
+                    <div class="alert alert-warning" role="alert">
+                        <strong>Important:</strong> You Must fill Out and Submit the <a href="#"
+                           class="alert-link data-page-link" data-page="ppr-form">Arrival PPR (Prior Permission Required
+                            form)</a> prior to arrival.
+                    </div>
+                    <!-- === END OF LINK UPDATE === -->
+
+                    <p>The runway is 11/29, and is 2335′ x 24′, asphalt in good condition. All patterns are flown over
+                        the water to the north of the field; left traffic for runway 11, and right traffic for 29. The
+                        airport is situated on a bluff, at 262′ elevation, and the drop-offs at either end can generate
+                        severe up or downdrafts and turbulence. There is <strong>NO OVERRUN</strong> at either end.
+                        Runway 29 has a 200′ displaced threshold and runway 11 a 100′ one. The displaced thresholds are
+                        necessitated by a power line on the east end with Red Avoidance Lighting, and trees on the west
+                        end. Winds can be both changeable and strong, especially in the afternoons. To land comfortably
+                        you should feel confident that you can land your plane in 1000-1200'.</p>
+
+                    <p>Our CTAF frequency is 122.9. Even when there is no traffic present, please announce your presence
+                        and intent, as someone is nearly always monitoring the frequency. We encourage you to overfly
+                        the field to familiarize yourself with the runway environment before landing. The official
+                        windsock is past midfield toward the west, on the south side. In addition, there are other
+                        windsocks visible from the eastern approach path.</p>
+
+                    <p>Plan to land past the displaced threshold lines, with a steeper approach that keeps you above the
+                        terrain-generated disturbances. Flying a stabilized approach that puts you at 700-800′ MSL when
+                        turning final will help guarantee a proper glideslope. Also be aware of possible descent path
+                        illusion: the narrow runway sitting on a bluff may make it appear that you are too high, and
+                        that the runway is longer than it is. Maintain your descent angle while taking in the entire
+                        runway environment.</p>
+
+                    <p>We have a large and fearless resident deer population. Overflight of the runway environment will
+                        enable a windsock check as well as a check for deer on or near the runway.</p>
+
+                    <p>Transient parking is just east of the shed on the south side of the runway, accessed via taxiways
+                        A2 or A3 to Alpha. If you are parking as the guest of someone on their property, make sure you
+                        have instructions on how to get there. Stop before crossing any street or road. When taxiing on
+                        the east end of Alpha, be certain to stay in the center of the flat surface, as the ground falls
+                        away on the north side.</p>
+
+                    <p>As a courtesy to our neighbors, upon departure from runway 11, delay turnout until over the
+                        water. Upon departure from runway 29, follow the drainage channel to the northwest, avoiding
+                        overflight of the homes west of the drainage.</p>
+
+                    <p>If you have questions or difficulties, check on our frequency for someone to advise. If you are
+                        unable to land because of weather or other issues, Jefferson County International (0S9 123.00)
+                        is about five miles to the east, with significantly different weather, a large runway, and
+                        facilities.</p>
+
+                    <div class="alert alert-danger mt-4" role="alert">
+                        <h4 class="alert-heading">Pilot Advisory</h4>
+                        <p>Be well aware that <strong>ALL operations on airport property are at the sole risk of the
+                                pilot.</strong> This includes taxiing, parking, and landing on or departing from any
+                            surface.</p>
+                    </div>
+
+                    <p class="mt-4">Please be careful, considerate, and safe!</p>
+                    <p>Thank you from the members of the Diamond Point Airport Association.</p>
+                    <img src="assets/traffic-pattern.jpg" class="card-img-top img-thumbnail img-fluid rounded shadow-sm"
+                         alt="Diamond Point Airport Traffic Pattern"
+                         onerror="this.src='https://placehold.co/600x400/0d6efd/white?text=Airport+Info'"
+                         style="object-fit: cover;">
+
+                </div>
+            </div>
+            <!-- END EDITING 'PROCEDURES' -->
+        </section>
+
+        <!-- --- CALENDAR PAGE --- -->
+        <section data-page-content="calendar" class="d-none">
+            <!-- EDIT YOUR 'CALENDAR' CONTENT BELOW -->
+            <div class="bg-white p-4 p-md-5 rounded shadow-lg">
+                <h1 class="display-4 fw-bold text-dark mb-4">Event Calendar</h1>
+                <div class="fs-5 text-secondary space-y-4">
+                    <p>
+                        <strong>(REPLACE THIS)</strong> You can list your upcoming events here or embed a Google
+                        Calendar.
+                    </p>
+                    <p>
+                        To embed a Google Calendar:
+                    </p>
+                    <ol class="list-group list-group-numbered list-group-flush">
+                        <li class="list-group-item">Go to your Google Calendar settings.</li>
+                        <li class="list-group-item">Find the "Integrate calendar" section.</li>
+                        <li class="list-group-item">Copy the "Embed code" (it starts with &lt;iframe...).</li>
+                        <li class="list-group-item">Paste that code right here in this file.</li>
+                    </ol>
+                    <!-- Example of where to paste embed code -->
+                    <!-- <iframe src="YOUR_GOOGLE_CALENDAR_EMBED_LINK" style="border:0" width="100%" height="600" frameborder="0" scrolling="no"></iframe> -->
+                </div>
+            </div>
+            <!-- END EDITING 'CALENDAR' -->
+        </section>
+
+        <!-- === NEW PPR FORM PAGE === -->
+        <section data-page-content="ppr-form" class="d-none">
+            <div class="bg-white p-4 p-md-5 rounded shadow-lg">
+                <h1 class="display-4 fw-bold text-dark mb-4">Arrival PPR</h1>
+                <h2 class="h4 text-secondary mb-4">Prior Permission Required Form</h2>
+
+                <p class="fs-5 text-secondary">
+                    You only need to fill out and submit this form once per calendar year. If anything changes, however,
+                    you will have to submit this form again.
+                </p>
+                <p class="fs-5 text-secondary">
+                    Submissions are sent to the board. Please do not submit this form without a sponsor.
+                </p>
+
+                <!-- 
+                  This form will be submitted via JavaScript (see script at bottom)
+                  We use "novalidate" to disable browser validation, as we use Bootstrap's.
+                -->
+                <form id="ppr-form-element" class="needs-validation" novalidate>
+
+                    <!-- Pilot Info -->
+                    <h3 class="h4 fw-semibold text-dark mt-5 mb-3">Pilot Information</h3>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label for="ppr-first-name" class="form-label">First Name</label>
+                            <input type="text" class="form-control" id="ppr-first-name" name="Pilot First Name"
+                                   required>
+                            <div class="invalid-feedback">First name is required.</div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="ppr-last-name" class="form-label">Last Name</label>
+                            <input type="text" class="form-control" id="ppr-last-name" name="Pilot Last Name" required>
+                            <div class="invalid-feedback">Last name is required.</div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="ppr-email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="ppr-email" name="Email" required>
+                            <div class="invalid-feedback">A valid email is required.</div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="ppr-sponsor" class="form-label">Sponsor Name (Must be in good standing)</label>
+                            <input type="text" class="form-control" id="ppr-sponsor" name="Sponsor Name" required>
+                            <div class="invalid-feedback">Sponsor name is required.</div>
+                        </div>
+                    </div>
+
+                    <div class="row g-3 mt-3">
+                        <div class="col-md-6">
+                            <label class="form-label">License</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="License" id="ppr-license-private"
+                                       value="Private" required>
+                                <label class="form-check-label" for="ppr-license-private">Private</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="License" id="ppr-license-commercial"
+                                       value="Commercial" required>
+                                <label class="form-check-label" for="ppr-license-commercial">Commercial</label>
+                                <div class="invalid-feedback" style="margin-left: -24px;">Please select a license type.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Ratings</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="Ratings" id="ppr-rating-vfr"
+                                       value="VFR">
+                                <label class="form-check-label" for="ppr-rating-vfr">VFR</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="Ratings" id="ppr-rating-ifr"
+                                       value="IFR">
+                                <label class="form-check-label" for="ppr-rating-ifr">IFR</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Aircraft Info -->
+                    <h3 class="h4 fw-semibold text-dark mt-5 mb-3">Aircraft Information</h3>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label for="ppr-n-number" class="form-label">Aircraft Registration (N-Number)</label>
+                            <input type="text" class="form-control" id="ppr-n-number" name="Aircraft Registration"
+                                   required>
+                            <div class="invalid-feedback">Registration is required.</div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Registered to Operate as:</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="Operate As" id="ppr-op-private"
+                                       value="Private" required>
+                                <label class="form-check-label" for="ppr-op-private">Private</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="Operate As" id="ppr-op-commercial"
+                                       value="Commercial" required>
+                                <label class="form-check-label" for="ppr-op-commercial">Commercial</label>
+                                <div class="invalid-feedback" style="margin-left: -24px;">Please select an operation
+                                    type.</div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="ppr-make" class="form-label">Make</label>
+                            <input type="text" class="form-control" id="ppr-make" name="Make">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="ppr-model" class="form-label">Model</label>
+                            <input type="text" class="form-control" id="ppr-model" name="Model">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="ppr-hp" class="form-label">Horsepower</label>
+                            <input type="text" class="form-control" id="ppr-hp" name="Horsepower">
+                        </div>
+                    </div>
+
+                    <!-- Waivers -->
+                    <h3 class="h4 fw-semibold text-dark mt-5 mb-3">Waivers and Insurance</h3>
+                    <p class="text-secondary">You must agree to all conditions below to submit this form. By submitting,
+                        you confirm this information is accurate.</p>
+
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" type="checkbox" value="Agreed" id="waiver1" name="Waiver 1"
+                               required>
+                        <label class="form-check-label" for="waiver1">
+                            I agree it is my sole responsibility to assess the runway and facilities prior to using
+                            them.
+                        </label>
+                        <div class="invalid-feedback">You must agree to this waiver.</div>
+                    </div>
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" type="checkbox" value="Agreed" id="waiver2" name="Waiver 2"
+                               required>
+                        <label class="form-check-label" for="waiver2">
+                            I agree it is my sole responsibility for the safety and actions of all people and animals
+                            with me at 2WA1/Diamond Point Airport. This includes all embarking passengers and
+                            disembarking passengers, visitors and guests.
+                        </label>
+                        <div class="invalid-feedback">You must agree to this waiver.</div>
+                    </div>
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" type="checkbox" value="Agreed" id="waiver3" name="Waiver 3"
+                               required>
+                        <label class="form-check-label" for="waiver3">
+                            I agree to follow all Federal and State regulations (FAR).
+                        </label>
+                        <div class="invalid-feedback">You must agree to this waiver.</div>
+                    </div>
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" type="checkbox" value="Agreed" id="waiver4" name="Waiver 4"
+                               required>
+                        <label class="form-check-label" for="waiver4">
+                            I am verifying that I and my plane (if privately registered) have $1,000,000 liability
+                            insurance. I am verifying that I and my plane (if commercially registered) have $2,000,000
+                            liability insurance.
+                        </label>
+                        <div class="invalid-feedback">You must agree to this waiver.</div>
+                    </div>
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" type="checkbox" value="Agreed" id="waiver5" name="Waiver 5"
+                               required>
+                        <label class="form-check-label" for="waiver5">
+                            I agree that neither Diamond Point Airport/2WA1 nor its officers, directors, agents,
+                            employees and members shall, at any time or to any extent whatsoever, be liable, responsible
+                            or in any way accountable for any loss, injury, death or damage to persons or property which
+                            at any time may be suffered or sustained by any person whomsoever arising out of the use or
+                            occupancy of the airport or its facilities. I also agree to indemnify, defend and hold
+                            Diamond Point Airport/2WA1 and its officers, directors, agents, employees and members free
+                            and harmless from and against any and all claims, liability, loss, damage or expense
+                            whatsoever, including attorney's fees, arising out of or resulting from any use of the
+                            airport or any portion thereof by myself, passengers, guests, invitees, agents or employees
+                            and I waive all claims against Diamond Point Airport/2WA1 and its officers, directors,
+                            agents, employees and members for any death or bodily injury and damage to aircraft or other
+                            personal property on or about the airport or any portion thereof from any cause or reason
+                            whatsoever. I waive any claim against Diamond Point Airport/2WA1 and its officers,
+                            directors, agents, employees and members as a result of the negligent design, inspection,
+                            repair and maintenance of the airport including, but not limited to, its runway, taxi way,
+                            tie downs and hangars.
+                        </label>
+                        <div class="invalid-feedback">You must agree to this waiver.</div>
+                    </div>
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" type="checkbox" value="Agreed" id="waiver6" name="Waiver 6"
+                               required>
+                        <label class="form-check-label" for="waiver6">
+                            I agree that neither Diamond Point Airport/2WA1, their officers, directors, agents and
+                            employees shall, at any time or to any extent whatsoever, be liable, responsible or in any
+                            way accountable for any blemish, loss and damage to my aircraft and equipment; further, I
+                            accept full responsibility to fully insure my aircraft, or the aircraft that I am delivering
+                            from all such events, or hereby solidly affirm that I have financially planned for and have
+                            fully self-insured the aircraft against all such events.
+                        </label>
+                        <div class="invalid-feedback">You must agree to this waiver.</div>
+                    </div>
+
+                    <!-- Submission Button & Status -->
+                    <div class="mt-4">
+                        <button id="ppr-submit-button" class="btn btn-primary btn-lg" type="submit">Submit PPR</button>
+                    </div>
+
+                    <!-- Status Messages -->
+                    <div id="ppr-form-success" class="alert alert-success mt-4 d-none" role="alert">
+                        <strong>Thank you!</strong> Your PPR form has been submitted successfully.
+                    </div>
+                    <div id="ppr-form-error" class="alert alert-danger mt-4 d-none" role="alert">
+                        <strong>Error:</strong> Something went wrong. Please try again or contact the board directly.
+                    </div>
+
+                </form>
+
+            </div>
+        </section>
+        <!-- === END OF NEW PPR FORM PAGE === -->
+
+    </main>
+
+    <!-- === FOOTER === -->
+    <footer class="bg-dark text-white mt-5">
+        <div class="container text-center py-4">
+            <p>&copy; <span id="current-year"></span> Diamond Point Airport. All Rights Reserved.</p>
+            <p class="mt-2 text-white-50">
+                The only official website of the Diamond Point Airport.
+            </p>
+            <!-- Add social links here if you have them -->
+        </div>
+    </footer>
+
+    <!-- 2. Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous"></script>
+
+    <!-- 3. Page Navigation Script -->
+    <script>
+        document.addEventListener( 'DOMContentLoaded', function () {
+
+            const allNavLinks = document.querySelectorAll( '.data-page-link' );
+            const allPageSections = document.querySelectorAll( '[data-page-content]' );
+            const activeClass = 'active'; // Bootstrap's active class
+            const hiddenClass = 'd-none'; // Bootstrap's display none class
+            const navbarCollapse = new bootstrap.Collapse( document.getElementById( 'main-nav' ), { toggle: false } );
+
+            function showPage ( pageId ) {
+                // 1. Hide all page sections
+                allPageSections.forEach( section => {
+                    section.classList.add( hiddenClass );
+                } );
+
+                // 2. Show the target page section
+                const targetPage = document.querySelector( `[data-page-content="${ pageId }"]` );
+                if ( targetPage ) {
+                    targetPage.classList.remove( hiddenClass );
+                }
+
+                // 3. Update active state for nav links
+                allNavLinks.forEach( link => {
+                    if ( link.dataset.page === pageId ) {
+                        link.classList.add( activeClass );
+                    } else {
+                        link.classList.remove( activeClass );
+                    }
+                } );
+
+                // 4. Close mobile menu on navigation
+                navbarCollapse.hide();
+
+                // 5. Scroll to top
+                window.scrollTo( 0, 0 );
+            }
+
+            // Add click listeners to all nav links
+            allNavLinks.forEach( link => {
+                link.addEventListener( 'click', function ( e ) {
+                    e.preventDefault(); // Stop browser from following '#'
+                    const pageId = this.dataset.page;
+                    showPage( pageId );
+                } );
+            } );
+
+            // --- Set Current Year in Footer ---
+            document.getElementById( 'current-year' ).textContent = new Date().getFullYear();
+
+            // --- Show Home Page on Initial Load ---
+            showPage( 'home' );
+
+            // --- NEW: PPR FORM SUBMISSION SCRIPT ---
+            const pprForm = document.getElementById( 'ppr-form-element' );
+            if ( pprForm ) {
+                const submitButton = document.getElementById( 'ppr-submit-button' );
+                const successMessage = document.getElementById( 'ppr-form-success' );
+                const errorMessage = document.getElementById( 'ppr-form-error' );
+
+                pprForm.addEventListener( 'submit', function ( e ) {
+                    e.preventDefault(); // Stop default browser submission
+
+                    // Client-side validation
+                    if ( !pprForm.checkValidity() ) {
+                        e.stopPropagation();
+                        pprForm.classList.add( 'was-validated' );
+                        return; // Stop if form is invalid
+                    }
+
+                    // --- IMPORTANT ---
+                    // 1. Create your Web Service on Render.
+                    // 2. Get its public URL (e.g., https://dpa-backend.onrender.com)
+                    // 3. Replace the URL below with your public URL.
+                    const apiEndpoint = 'https://twowa1.onrender.com/send-ppr-form';
+
+                    if ( apiEndpoint === 'YOUR_RENDER_WEB_SERVICE_URL_HERE/send-ppr-form' ) {
+                        errorMessage.innerHTML = '<strong>Configuration Error:</strong> The form API endpoint has not been set by the administrator.';
+                        errorMessage.classList.remove( 'd-none' );
+                        return;
+                    }
+
+                    // Disable button, show loading
+                    submitButton.disabled = true;
+                    submitButton.textContent = 'Submitting...';
+                    successMessage.classList.add( 'd-none' );
+                    errorMessage.classList.add( 'd-none' );
+
+                    // Get form data
+                    const formData = new FormData( pprForm );
+                    const data = {};
+                    formData.forEach( ( value, key ) => {
+                        // Handle checkboxes
+                        if ( key.endsWith( '[]' ) ) {
+                            const newKey = key.slice( 0, -2 );
+                            if ( !data[ newKey ] ) {
+                                data[ newKey ] = [];
+                            }
+                            data[ newKey ].push( value );
+                        } else {
+                            data[ key ] = value;
+                        }
+                    } );
+
+                    // Send data to your backend
+                    fetch( apiEndpoint, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify( data )
+                    } )
+                        .then( response => {
+                            if ( response.ok ) {
+                                return response.json();
+                            }
+                            // Handle server-side errors
+                            throw new Error( 'Server responded with an error.' );
+                        } )
+                        .then( result => {
+                            // Success!
+                            successMessage.classList.remove( 'd-none' );
+                            pprForm.reset();
+                            pprForm.classList.remove( 'was-validated' );
+                            submitButton.disabled = false;
+                            submitButton.textContent = 'Submit PPR';
+                        } )
+                        .catch( error => {
+                            // Failure
+                            errorMessage.classList.remove( 'd-none' );
+                            submitButton.disabled = false;
+                            submitButton.textContent = 'Submit PPR';
+                        } );
+                } );
+            }
+            // --- END OF NEW FORM SCRIPT ---
+
+        } );
+    </script>
+
+</body>
+</html>
