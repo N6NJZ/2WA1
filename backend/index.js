@@ -67,16 +67,26 @@ if (!EMAIL_USER || !EMAIL_PASS || !DESTINATION_EMAIL) {
 console.log('creating transporter');
 
 const transporter = nodemailer.createTransport({
-  host: 'smtp.gmail.com', // Explicit host
-  port: 465,              // Explicit secure port
-  secure: true,           // Use SSL
+  host: 'smtp.gmail.com',  // We are being explicit
+  port: 465,               // We are forcing the SSL port
+  secure: true,            // This requires the connection to be secure instantly
   auth: {
     user: EMAIL_USER,
     pass: EMAIL_PASS,
   },
-  // detailed logging to debug the connection
-  logger: true,
-  debug: true 
+  logger: true, // Log every step of the connection
+  debug: true   // Include SMTP traffic in logs
+});
+
+// === ADD THIS VERIFICATION BLOCK ===
+// This will test the connection immediately when the server starts.
+// If this fails, the app logs will tell you EXACTLY why (e.g., "Bad Auth" or "Connection Timeout")
+transporter.verify(function (error, success) {
+  if (error) {
+    console.error('[CRITICAL] Email Server Connection Failed:', error);
+  } else {
+    console.log('[SUCCESS] Email Server is ready to take messages');
+  }
 });
 
 // === API ENDPOINT ===
