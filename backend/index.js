@@ -13,6 +13,7 @@ const port = process.env.PORT || 10000;
 
 app.use((req, res, next) => {
   console.log(`[Request Reveived] ${req.method} ${req.url}`);
+  next();
 })
 app.use(cors({
   origin: FRONTEND_URL,
