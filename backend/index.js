@@ -51,7 +51,7 @@ console.log('creating transporter');
 
 // === API ENDPOINT ===
 // This is the endpoint your HTML form will send data to
-app.post('/send-ppr-form', (req, res) => {
+app.post('/send-ppr-form', async (req, res) => {
   console.log('Received PPR form submission');
 
   const data = req.body;
@@ -80,13 +80,14 @@ app.post('/send-ppr-form', (req, res) => {
   // Send the email
   const resend = new Resend(process.env.RESEND_API_KEY);
 
-  resend.emails.send({
+  const response = await resend.emails.send({
     from: process.env.EMAIL_USER || 'dave@rv-7.com',
     to: 'dave@rv-7.com',
     subject: 'Hello World',
     html: '<p>Congrats on sending your <strong>first email</strong>!</p>'
   });
 
+  console.log('Response: ', response);
 });
 
 // Health check endpoint (optional, but good for Render)
