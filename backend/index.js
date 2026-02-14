@@ -10,12 +10,7 @@ const FRONTEND_URL = 'https://twowa1-front-end.onrender.com';
 const app = express();
 const port = process.env.PORT || 10000;
 
-app.use((req, res, next) => {
-  console.log('------------------------------------------------');
-  console.log(`[STEP 1] Raw Request Received: ${req.method} ${req.url}`);
-  console.log(`[STEP 1] Headers:`, JSON.stringify(req.headers['content-type']));
-  next();
-});
+
 
 // Allow EVERYONE. If this fixes it, we know your FRONTEND_URL variable was slightly wrong (e.g. missing 'www' or 'https').
 app.use(cors({
@@ -24,10 +19,7 @@ app.use(cors({
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true
 }));
-app.use((req, res, next) => {
-  console.log('[STEP 2] Passed CORS');
-  next();
-});
+
 
 // 3. BODY PARSER WITH ERROR HANDLING
 // If the JSON is bad, this is usually where it crashes silently.
@@ -41,10 +33,7 @@ app.use(express.json({ limit: '10mb' }), (err, req, res, next) => {
 
 app.use(express.urlencoded({ extended: true }));
 
-app.use((req, res, next) => {
-  console.log('[STEP 3] Body Parsed. Payload keys:', Object.keys(req.body));
-  next();
-});
+
 
 // === EMAIL CONFIGURATION ===
 // Get email credentials from Environment Variables
@@ -68,11 +57,14 @@ console.log('creating transporter');
 
 const transporter = nodemailer.createTransport({
   host: 'smtp.gmail.com',  // We are being explicit
-  port: 465,               // We are forcing the SSL port
-  secure: true,            // This requires the connection to be secure instantly
+  port: 587,               // We are forcing the SSL port
+  secure: false,            // This requires the connection to be secure instantly
   auth: {
     user: EMAIL_USER,
     pass: EMAIL_PASS,
+  },
+  tls: {
+    rejectUnauthorized: false
   },
   logger: true, // Log every step of the connection
   debug: true   // Include SMTP traffic in logs
