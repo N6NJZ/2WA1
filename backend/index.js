@@ -28,7 +28,8 @@ app.use(express.json({ limit: '10mb' }), (err, req, res, next) => {
 app.use(express.urlencoded({ extended: true }));
 
 // === EMAIL CONFIGURATION ===
-const EMAIL_USER = process.env.EMAIL_USER;
+//const EMAIL_USER = process.env.EMAIL_USER;
+const EMAIL_USER = 'ACME <onboarding@resend.dev>';
 const EMAIL_PASS = process.env.EMAIL_PASS;
 const DESTINATION_EMAIL = process.env.DESTINATION_EMAIL;
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
@@ -81,7 +82,7 @@ app.post('/send-ppr-form', async (req, res) => {
   const resend = new Resend(process.env.RESEND_API_KEY);
 
   const response = await resend.emails.send({
-    from: process.env.EMAIL_USER || 'dave@rv-7.com',
+    from: EMAIL_USER,
     to: 'dave@rv-7.com',
     subject: 'Hello World',
     html: '<p>Congrats on sending your <strong>first email</strong>!</p>'
