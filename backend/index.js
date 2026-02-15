@@ -53,42 +53,50 @@ console.log('creating transporter');
 // === API ENDPOINT ===
 // This is the endpoint your HTML form will send data to
 app.post('/send-ppr-form', async (req, res) => {
-  console.log('Received PPR form submission');
 
-  const data = req.body;
+  try {
+    console.log('Received PPR form submission');
 
-  if (!data || Object.keys(data).length === 0) {
-    console.error('Received empty body');
-    return res.status(400).json({ message: "No data received" });
+    const data = req.body;
+
+    if (!data || Object.keys(data).length === 0) {
+      console.error('Received empty body');
+      return res.status(400).json({ message: "No data received" });
+    }
+
+    // Create a simple HTML body for the email
+    let htmlBody = '<h1>New PPR Form Submission</h1>';
+    htmlBody += '<table border="1" cellpadding="5" cellspacing="0">';
+    for (const key in data) {
+      htmlBody += `<tr><td><strong>${key}</strong></td><td>${Array.isArray(data[key]) ? data[key].join(', ') : data[key]}</td></tr>`;
+    }
+    htmlBody += '</table>';
+
+    // Email options
+    const mailOptions = {
+      from: `"DPA Website Form" <${EMAIL_USER}>`, // Sender address
+      to: DESTINATION_EMAIL, // List of receivers
+      subject: `New PPR Submission: ${data['Pilot First Name']} ${data['Pilot Last Name']}`, // Subject line
+      html: htmlBody, // HTML body
+    };
+
+    // Send the email
+    const resend = new Resend(process.env.RESEND_API_KEY);
+
+    const { data: emailData, error } = await resend.emails.send({
+      from: EMAIL_USER,
+      to: 'dave@rv-7.com',
+      subject: 'Hello World',
+      html: '<p>Congrats on sending your <strong>first email</strong>!</p>'
+    });
+
+    if (error) {
+      console.error('Resend Blocked the request:', error);
+      return res.status(403).jsong({ message: "Verify your domain" })
+    }
+  } catch (err) {
+    res.status(500).json({ message: 'Internal Server Error' })
   }
-
-  // Create a simple HTML body for the email
-  let htmlBody = '<h1>New PPR Form Submission</h1>';
-  htmlBody += '<table border="1" cellpadding="5" cellspacing="0">';
-  for (const key in data) {
-    htmlBody += `<tr><td><strong>${key}</strong></td><td>${Array.isArray(data[key]) ? data[key].join(', ') : data[key]}</td></tr>`;
-  }
-  htmlBody += '</table>';
-
-  // Email options
-  const mailOptions = {
-    from: `"DPA Website Form" <${EMAIL_USER}>`, // Sender address
-    to: DESTINATION_EMAIL, // List of receivers
-    subject: `New PPR Submission: ${data['Pilot First Name']} ${data['Pilot Last Name']}`, // Subject line
-    html: htmlBody, // HTML body
-  };
-
-  // Send the email
-  const resend = new Resend(process.env.RESEND_API_KEY);
-
-  const response = await resend.emails.send({
-    from: EMAIL_USER,
-    to: 'dave@rv-7.com',
-    subject: 'Hello World',
-    html: '<p>Congrats on sending your <strong>first email</strong>!</p>'
-  });
-
-  console.log('Response: ', response);
 });
 
 // Health check endpoint (optional, but good for Render)
