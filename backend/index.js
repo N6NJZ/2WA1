@@ -14,6 +14,8 @@ app.use(cors({
   credentials: true
 }));
 
+app.options('*', cors());
+
 
 // 3. BODY PARSER WITH ERROR HANDLING
 // If the JSON is bad, this is usually where it crashes silently.
@@ -42,12 +44,6 @@ if (!EMAIL_USER || !EMAIL_PASS || !DESTINATION_EMAIL || !RESEND_API_KEY) {
   // process.exit(1); 
   // Note: Render might restart this. Logging is key.
 }
-
-// Create a reusable transporter object using Nodemailer
-// This example uses Gmail. You MUST use an "App Password" for this.
-// See: https://support.google.com/accounts/answer/185833
-console.log('creating transporter');
-
 
 
 // === API ENDPOINT ===
@@ -94,6 +90,8 @@ app.post('/send-ppr-form', async (req, res) => {
       console.error('Resend Blocked the request:', error);
       return res.status(403).jsong({ message: "Verify your domain" })
     }
+    console.log('Email sent successfully:', emailData);
+    return res.status(200).json({ message: 'Success', id: emailData.id });
   } catch (err) {
     res.status(500).json({ message: 'Internal Server Error' })
   }
