@@ -30,8 +30,7 @@ app.use(express.json({ limit: '10mb' }), (err, req, res, next) => {
 app.use(express.urlencoded({ extended: true }));
 
 // === EMAIL CONFIGURATION ===
-//const EMAIL_USER = process.env.EMAIL_USER;
-const EMAIL_USER = 'ACME <onboarding@resend.dev>';
+const EMAIL_USER = process.env.EMAIL_USER;
 const EMAIL_PASS = process.env.EMAIL_PASS;
 const DESTINATION_EMAIL = process.env.DESTINATION_EMAIL;
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
@@ -68,22 +67,14 @@ app.post('/send-ppr-form', async (req, res) => {
     }
     htmlBody += '</table>';
 
-    // Email options
-    const mailOptions = {
-      from: `"DPA Website Form" <${EMAIL_USER}>`, // Sender address
-      to: DESTINATION_EMAIL, // List of receivers
-      subject: `New PPR Submission: ${data['Pilot First Name']} ${data['Pilot Last Name']}`, // Subject line
-      html: htmlBody, // HTML body
-    };
-
     // Send the email
     const resend = new Resend(process.env.RESEND_API_KEY);
 
     const { data: emailData, error } = await resend.emails.send({
-      from: EMAIL_USER,
-      to: 'dave@rv-7.com',
-      subject: 'Hello World',
-      html: '<p>Congrats on sending your <strong>first email</strong>!</p>'
+      from: `"DPA Website Form" <${EMAIL_USER}>`, // Sender address
+      to: DESTINATION_EMAIL, // List of receivers
+      subject: `New PPR Submission: ${data['Pilot First Name']} ${data['Pilot Last Name']}`, // Subject line
+      html: htmlBody,
     });
 
     if (error) {
