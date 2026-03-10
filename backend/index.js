@@ -8,7 +8,7 @@ const port = process.env.PORT || 10000;
 
 // Allow EVERYONE. If this fixes it, we know your FRONTEND_URL variable was slightly wrong (e.g. missing 'www' or 'https').
 app.use(cors({
-  origin: '*',
+  origin: ['https://2wa1.org','https://www.2wa1.org','http://localhost:3000'],
   methods: ['POST', 'GET', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true
