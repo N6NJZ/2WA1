@@ -32,8 +32,7 @@ app.use(express.urlencoded({ extended: true }));
 // === EMAIL CONFIGURATION ===
 const EMAIL_USER = process.env.EMAIL_USER;
 const EMAIL_PASS = process.env.EMAIL_PASS;
-//const DESTINATION_EMAIL = process.env.DESTINATION_EMAIL;
-const DESTINATION_EMAIL = 'walter@tondu.com';
+const DESTINATION_EMAIL = process.env.DESTINATION_EMAIL;
 
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
 
