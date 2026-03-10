@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +11,7 @@
 
     <!-- 1. Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-          xintegrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        xintegrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
     <style>
         /* Simple style for the active navigation link (Bootstrap's 'active' class) */
@@ -24,8 +25,36 @@
             background-color: #f8f9fa;
             /* Bootstrap light gray bg */
         }
+        .desktop-calendar {
+            display: block;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .mobile-calendar {
+            display: none;
+        }
+        @media (max-width: 768px) {
+            .desktop-calendar {
+                display: none;
+            }
+            .mobile-calendar-btn {
+                display: block;
+                width: 200px;
+                margin: 40px auto;
+                padding: 15px 25px;
+                background-color: #4285F4;
+                color: #ffffff;
+                text-align: center;
+                text-decoration: none;
+                font-family: sans-serif;
+                font-weight: bold;
+                border-radius: 6px;
+            }
+        }
     </style>
 </head>
+
 <body class="font-sans antialiased text-gray-800 bg-gray-50">
 
     <!-- === HEADER & NAVIGATION === -->
@@ -39,7 +68,7 @@
 
                 <!-- Mobile Menu Button -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav"
-                        aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+                    aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
@@ -116,15 +145,15 @@
                     <div class="col-md-6">
                         <div class="card shadow-sm h-100 overflow-hidden">
                             <img src="assets/airstrip-info.jpg" class="card-img-top" alt="Diamond Point Airport Info"
-                                 onerror="this.src='https://placehold.co/600x400/0d6efd/white?text=Airport+Info'"
-                                 style="height: 250px; object-fit: cover;">
+                                onerror="this.src='https://placehold.co/600x400/0d6efd/white?text=Airport+Info'"
+                                style="height: 250px; object-fit: cover;">
                             <div class="card-body p-4">
                                 <h3 class="card-title h2 fw-semibold text-primary mb-2">About</h3>
                                 <p class="card-text text-dark">Learn about our Airport.</p>
                             </div>
                             <!-- "data-page" attr links this to the JS navigation -->
                             <a href="#" class="stretched-link data-page-link" data-page="about"
-                               aria-label="View About"></a>
+                                aria-label="View About"></a>
                         </div>
                     </div>
 
@@ -132,14 +161,14 @@
                     <div class="col-md-6">
                         <div class="card shadow-sm h-100 overflow-hidden">
                             <img src="assets/live-weather.jpg" class="card-img-top" alt="Weather Station"
-                                 onerror="this.src='https://placehold.co/600x400/198754/white?text=Live+Weather'"
-                                 style="height: 250px; object-fit: cover;">
+                                onerror="this.src='https://placehold.co/600x400/198754/white?text=Live+Weather'"
+                                style="height: 250px; object-fit: cover;">
                             <div class="card-body p-4">
                                 <h3 class="card-title h2 fw-semibold text-success mb-2">Weather</h3>
                                 <p class="card-text text-dark">Stay in the know with live weather.</p>
                             </div>
                             <a href="#" class="stretched-link data-page-link" data-page="weather"
-                               aria-label="View Weather"></a>
+                                aria-label="View Weather"></a>
                         </div>
                     </div>
 
@@ -195,7 +224,7 @@
                         <p class="fs-5 text-secondary">
                             All patterns are flown over the water to the north of the field. The airport is situated on
                             a bluff, and drop-offs at either end can generate turbulence. See the <a href="#"
-                               class="fw-bold data-page-link" data-page="procedures">Procedures</a> page for critical
+                                class="fw-bold data-page-link" data-page="procedures">Procedures</a> page for critical
                             arrival and departure information.
                         </p>
                     </div>
@@ -205,15 +234,15 @@
                         <div class="mb-4">
                             <a href="https://skyvector.com/airport/2WA1/Diamond-Point-Airstrip-Airport" target="_blank">
                                 <img src="assets/airstrip-info.jpg" target="_blank"
-                                     class="img-thumbnail img-fluid rounded shadow-sm"
-                                     alt="Airstrip information diagram">
+                                    class="img-thumbnail img-fluid rounded shadow-sm"
+                                    alt="Airstrip information diagram">
                             </a>
                         </div>
                         <div>
                             <a href="https://skyvector.com/?ll=48.07045149251432,-122.98080253250902&chart=301&zoom=1"
-                               target="_blank">
+                                target="_blank">
                                 <img src="assets/skyvector1.jpg" class="img-thumbnail img-fluid rounded shadow-sm"
-                                     alt="SkyVector sectional chart">
+                                    alt="SkyVector sectional chart">
                             </a>
                         </div>
                     </div>
@@ -440,8 +469,8 @@
                 -->
                 <div class="ratio ratio-16x9" style="min-height: 80vh;">
                     <iframe style="border: 1px solid #ccc; border-radius: 8px;"
-                            src="https://tempestwx.com/station/89998/grid" title="Live Diamond Point Weather Station"
-                            allowfullscreen>
+                        src="https://tempestwx.com/station/89998/grid" title="Live Diamond Point Weather Station"
+                        allowfullscreen>
                     </iframe>
                 </div>
             </div>
@@ -465,7 +494,8 @@
                     <!-- === LINK UPDATED HERE === -->
                     <div class="alert alert-warning" role="alert">
                         <strong>Important:</strong> You Must fill Out and Submit the <a href="#"
-                           class="alert-link data-page-link" data-page="ppr-form">Arrival PPR (Prior Permission Required
+                            class="alert-link data-page-link" data-page="ppr-form">Arrival PPR (Prior Permission
+                            Required
                             form)</a> prior to arrival.
                     </div>
                     <!-- === END OF LINK UPDATE === -->
@@ -520,9 +550,9 @@
                     <p class="mt-4">Please be careful, considerate, and safe!</p>
                     <p>Thank you from the members of the Diamond Point Airport Association.</p>
                     <img src="assets/traffic-pattern.jpg" class="card-img-top img-thumbnail img-fluid rounded shadow-sm"
-                         alt="Diamond Point Airport Traffic Pattern"
-                         onerror="this.src='https://placehold.co/600x400/0d6efd/white?text=Airport+Info'"
-                         style="object-fit: cover;">
+                        alt="Diamond Point Airport Traffic Pattern"
+                        onerror="this.src='https://placehold.co/600x400/0d6efd/white?text=Airport+Info'"
+                        style="object-fit: cover;">
 
                 </div>
             </div>
@@ -535,8 +565,13 @@
             <div class="bg-white p-4 p-md-5 rounded shadow-lg">
                 <h1 class="display-4 fw-bold text-dark mb-4">Event Calendar</h1>
                 <div class="fs-5 text-secondary space-y-4">
-
-                    <iframe src="https://calendar.google.com/calendar/embed?src=diamondpointairport%40gmail.com&ctz=America%2FChicago" style="border:0" width="100%" height="600" frameborder="0" scrolling="no"></iframe>
+                    <div class="calendar-wrapper">
+                        <iframe class="desktop-calendar"
+                            src="https://calendar.google.com/calendar/embed?src=diamondpointairport%40gmail.com&ctz=America%2FChicago"
+                            style="border:0" width="100%" height="600" frameborder="0" scrolling="no"></iframe>
+                    
+                    <a class="mobile-calendar-btn" href="" target="_blank" rel="noopener noreferrer">View Google Calendar</a>
+                    </div>
                 </div>
             </div>
             <!-- END EDITING 'CALENDAR' -->
@@ -568,7 +603,7 @@
                         <div class="col-md-6">
                             <label for="ppr-first-name" class="form-label">First Name</label>
                             <input type="text" class="form-control" id="ppr-first-name" name="Pilot First Name"
-                                   required>
+                                required>
                             <div class="invalid-feedback">First name is required.</div>
                         </div>
                         <div class="col-md-6">
@@ -593,12 +628,12 @@
                             <label class="form-label">License</label>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="License" id="ppr-license-private"
-                                       value="Private" required>
+                                    value="Private" required>
                                 <label class="form-check-label" for="ppr-license-private">Private</label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="License" id="ppr-license-commercial"
-                                       value="Commercial" required>
+                                    value="Commercial" required>
                                 <label class="form-check-label" for="ppr-license-commercial">Commercial</label>
                                 <div class="invalid-feedback" style="margin-left: -24px;">Please select a license type.
                                 </div>
@@ -608,12 +643,12 @@
                             <label class="form-label">Ratings</label>
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" name="Ratings[]" id="ppr-rating-vfr"
-                                       value="VFR">
+                                    value="VFR">
                                 <label class="form-check-label" for="ppr-rating-vfr">VFR</label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" name="Ratings[]" id="ppr-rating-ifr"
-                                       value="IFR">
+                                    value="IFR">
                                 <label class="form-check-label" for="ppr-rating-ifr">IFR</label>
                             </div>
                         </div>
@@ -625,19 +660,19 @@
                         <div class="col-md-6">
                             <label for="ppr-n-number" class="form-label">Aircraft Registration (N-Number)</label>
                             <input type="text" class="form-control" id="ppr-n-number" name="Aircraft Registration"
-                                   required>
+                                required>
                             <div class="invalid-feedback">Registration is required.</div>
                         </div>
                         <div class="col-md-6">
                             <label class="form-label">Registered to Operate as:</label>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="Operate As" id="ppr-op-private"
-                                       value="Private" required>
+                                    value="Private" required>
                                 <label class="form-check-label" for="ppr-op-private">Private</label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="Operate As" id="ppr-op-commercial"
-                                       value="Commercial" required>
+                                    value="Commercial" required>
                                 <label class="form-check-label" for="ppr-op-commercial">Commercial</label>
                                 <div class="invalid-feedback" style="margin-left: -24px;">Please select an operation
                                     type.</div>
@@ -664,7 +699,7 @@
 
                     <div class="form-check mb-3">
                         <input class="form-check-input" type="checkbox" value="Agreed" id="waiver1" name="Waiver 1"
-                               required>
+                            required>
                         <label class="form-check-label" for="waiver1">
                             I agree it is my sole responsibility to assess the runway and facilities prior to using
                             them.
@@ -673,7 +708,7 @@
                     </div>
                     <div class="form-check mb-3">
                         <input class="form-check-input" type="checkbox" value="Agreed" id="waiver2" name="Waiver 2"
-                               required>
+                            required>
                         <label class="form-check-label" for="waiver2">
                             I agree it is my sole responsibility for the safety and actions of all people and animals
                             with me at 2WA1/Diamond Point Airport. This includes all embarking passengers and
@@ -683,7 +718,7 @@
                     </div>
                     <div class="form-check mb-3">
                         <input class="form-check-input" type="checkbox" value="Agreed" id="waiver3" name="Waiver 3"
-                               required>
+                            required>
                         <label class="form-check-label" for="waiver3">
                             I agree to follow all Federal and State regulations (FAR).
                         </label>
@@ -691,7 +726,7 @@
                     </div>
                     <div class="form-check mb-3">
                         <input class="form-check-input" type="checkbox" value="Agreed" id="waiver4" name="Waiver 4"
-                               required>
+                            required>
                         <label class="form-check-label" for="waiver4">
                             I am verifying that I and my plane (if privately registered) have $1,000,000 liability
                             insurance. I am verifying that I and my plane (if commercially registered) have $2,000,000
@@ -701,7 +736,7 @@
                     </div>
                     <div class="form-check mb-3">
                         <input class="form-check-input" type="checkbox" value="Agreed" id="waiver5" name="Waiver 5"
-                               required>
+                            required>
                         <label class="form-check-label" for="waiver5">
                             I agree that neither Diamond Point Airport/2WA1 nor its officers, directors, agents,
                             employees and members shall, at any time or to any extent whatsoever, be liable, responsible
@@ -724,7 +759,7 @@
                     </div>
                     <div class="form-check mb-3">
                         <input class="form-check-input" type="checkbox" value="Agreed" id="waiver6" name="Waiver 6"
-                               required>
+                            required>
                         <label class="form-check-label" for="waiver6">
                             I agree that neither Diamond Point Airport/2WA1, their officers, directors, agents and
                             employees shall, at any time or to any extent whatsoever, be liable, responsible or in any
@@ -770,76 +805,76 @@
 
     <!-- 2. Bootstrap JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-            xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-            crossorigin="anonymous"></script>
+        xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
 
     <!-- 3. Page Navigation Script -->
     <script>
-        document.addEventListener( 'DOMContentLoaded', function () {
-            const BACKEND_URL = 'https://twowa1-back-end.onrender.com'; 
-            const allNavLinks = document.querySelectorAll( '.data-page-link' );
-            const allPageSections = document.querySelectorAll( '[data-page-content]' );
+        document.addEventListener('DOMContentLoaded', function () {
+            const BACKEND_URL = 'https://twowa1-back-end.onrender.com';
+            const allNavLinks = document.querySelectorAll('.data-page-link');
+            const allPageSections = document.querySelectorAll('[data-page-content]');
             const activeClass = 'active'; // Bootstrap's active class
             const hiddenClass = 'd-none'; // Bootstrap's display none class
-            const navbarCollapse = new bootstrap.Collapse( document.getElementById( 'main-nav' ), { toggle: false } );
+            const navbarCollapse = new bootstrap.Collapse(document.getElementById('main-nav'), { toggle: false });
 
-            function showPage ( pageId ) {
+            function showPage(pageId) {
                 // 1. Hide all page sections
-                allPageSections.forEach( section => {
-                    section.classList.add( hiddenClass );
-                } );
+                allPageSections.forEach(section => {
+                    section.classList.add(hiddenClass);
+                });
 
                 // 2. Show the target page section
-                const targetPage = document.querySelector( `[data-page-content="${ pageId }"]` );
-                if ( targetPage ) {
-                    targetPage.classList.remove( hiddenClass );
+                const targetPage = document.querySelector(`[data-page-content="${pageId}"]`);
+                if (targetPage) {
+                    targetPage.classList.remove(hiddenClass);
                 }
 
                 // 3. Update active state for nav links
-                allNavLinks.forEach( link => {
-                    if ( link.dataset.page === pageId ) {
-                        link.classList.add( activeClass );
+                allNavLinks.forEach(link => {
+                    if (link.dataset.page === pageId) {
+                        link.classList.add(activeClass);
                     } else {
-                        link.classList.remove( activeClass );
+                        link.classList.remove(activeClass);
                     }
-                } );
+                });
 
                 // 4. Close mobile menu on navigation
                 navbarCollapse.hide();
 
                 // 5. Scroll to top
-                window.scrollTo( 0, 0 );
+                window.scrollTo(0, 0);
             }
 
             // Add click listeners to all nav links
-            allNavLinks.forEach( link => {
-                link.addEventListener( 'click', function ( e ) {
+            allNavLinks.forEach(link => {
+                link.addEventListener('click', function (e) {
                     e.preventDefault(); // Stop browser from following '#'
                     const pageId = this.dataset.page;
-                    showPage( pageId );
-                } );
-            } );
+                    showPage(pageId);
+                });
+            });
 
             // --- Set Current Year in Footer ---
-            document.getElementById( 'current-year' ).textContent = new Date().getFullYear();
+            document.getElementById('current-year').textContent = new Date().getFullYear();
 
             // --- Show Home Page on Initial Load ---
-            showPage( 'home' );
+            showPage('home');
 
             // --- NEW: PPR FORM SUBMISSION SCRIPT ---
-            const pprForm = document.getElementById( 'ppr-form-element' );
-            if ( pprForm ) {
-                const submitButton = document.getElementById( 'ppr-submit-button' );
-                const successMessage = document.getElementById( 'ppr-form-success' );
-                const errorMessage = document.getElementById( 'ppr-form-error' );
+            const pprForm = document.getElementById('ppr-form-element');
+            if (pprForm) {
+                const submitButton = document.getElementById('ppr-submit-button');
+                const successMessage = document.getElementById('ppr-form-success');
+                const errorMessage = document.getElementById('ppr-form-error');
 
-                pprForm.addEventListener( 'submit', function ( e ) {
+                pprForm.addEventListener('submit', function (e) {
                     e.preventDefault(); // Stop default browser submission
                     console.log("Form submission intercepted via JS.");
                     // Client-side validation
-                    if ( !pprForm.checkValidity() ) {
+                    if (!pprForm.checkValidity()) {
                         e.stopPropagation();
-                        pprForm.classList.add( 'was-validated' );
+                        pprForm.classList.add('was-validated');
                         return; // Stop if form is invalid
                     }
 
@@ -852,61 +887,62 @@
                     // Disable button, show loading
                     submitButton.disabled = true;
                     submitButton.textContent = 'Submitting...';
-                    successMessage.classList.add( 'd-none' );
-                    errorMessage.classList.add( 'd-none' );
+                    successMessage.classList.add('d-none');
+                    errorMessage.classList.add('d-none');
 
                     // Get form data
-                    const formData = new FormData( pprForm );
+                    const formData = new FormData(pprForm);
                     const data = {};
-                    formData.forEach( ( value, key ) => {
+                    formData.forEach((value, key) => {
                         // Handle checkboxes
-                        if ( key.endsWith( '[]' ) ) {
-                            const newKey = key.slice( 0, -2 );
-                            if ( !data[ newKey ] ) {
-                                data[ newKey ] = [];
+                        if (key.endsWith('[]')) {
+                            const newKey = key.slice(0, -2);
+                            if (!data[newKey]) {
+                                data[newKey] = [];
                             }
-                            data[ newKey ].push( value );
+                            data[newKey].push(value);
                         } else {
-                            data[ key ] = value;
+                            data[key] = value;
                         }
-                    } );
+                    });
 
                     console.log("Payload prepared:", data);
                     // Send data to your backend
-                    fetch( apiEndpoint, {
+                    fetch(apiEndpoint, {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'
                         },
-                        body: JSON.stringify( data )
-                    } )
-                        .then( response => {
-                            if ( response.ok ) {
+                        body: JSON.stringify(data)
+                    })
+                        .then(response => {
+                            if (response.ok) {
                                 return response.json();
                             }
                             // Handle server-side errors
-                            throw new Error( 'Server responded with an error.' );
-                        } )
-                        .then( result => {
+                            throw new Error('Server responded with an error.');
+                        })
+                        .then(result => {
                             // Success!
-                            successMessage.classList.remove( 'd-none' );
+                            successMessage.classList.remove('d-none');
                             pprForm.reset();
-                            pprForm.classList.remove( 'was-validated' );
+                            pprForm.classList.remove('was-validated');
                             submitButton.disabled = false;
                             submitButton.textContent = 'Submit PPR';
-                        } )
-                        .catch( error => {
+                        })
+                        .catch(error => {
                             // Failure
-                            errorMessage.classList.remove( 'd-none' );
+                            errorMessage.classList.remove('d-none');
                             submitButton.disabled = false;
                             submitButton.textContent = 'Submit PPR';
-                        } );
-                } );
+                        });
+                });
             }
             // --- END OF NEW FORM SCRIPT ---
 
-        } );
+        });
     </script>
 
 </body>
+
 </html>
